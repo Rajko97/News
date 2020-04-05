@@ -4,11 +4,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:contex="com.newscompany.news.activity.MainActivity"
+    tools:contex="com.newscompany.news.ui.main.MainActivity"
     android:background="@android:color/black"
     android:paddingTop="3dp">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_layout" />
 </LinearLayout>

@@ -1,13 +1,13 @@
-package com.newscompany.news.activity
+package com.newscompany.news.ui.web_view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import com.newscompany.news.R
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_web_view.*
 
-class WebViewActivity : AppCompatActivity() {
+class WebViewActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
