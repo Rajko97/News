@@ -32,22 +32,7 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        createCustomActionBar()
         loadJson()
-    }
-
-    private fun createCustomActionBar() {
-        val view = layoutInflater.inflate(R.layout.action_bar, null)
-        val params = ActionBar.LayoutParams(
-            ActionBar.LayoutParams.WRAP_CONTENT,
-            ActionBar.LayoutParams.MATCH_PARENT,
-            Gravity.CENTER
-        )
-        val title = view.findViewById<TextView>(R.id.actionbar_title)
-        title.text = getString(R.string.action_bar_title)
-        supportActionBar?.setCustomView(view, params)
-        supportActionBar?.setDisplayShowCustomEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     private fun loadJson() {
@@ -68,6 +53,5 @@ class MainActivity : DaggerAppCompatActivity() {
             news?.let { newsAdapter.submitList(it) }
             adapter = newsAdapter
         }
-
     }
 }

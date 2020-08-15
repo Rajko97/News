@@ -1,10 +1,13 @@
 package com.newscompany.news.ui.web_view
 
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
+import android.widget.Toolbar
 import com.newscompany.news.R
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : DaggerAppCompatActivity() {
@@ -20,7 +23,11 @@ class WebViewActivity : DaggerAppCompatActivity() {
         val title = bundle!!.getString("title")
         val url = bundle.getString("url")
 
+        setSupportActionBar(appToolBar)
         setTitle(title)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
         webView.settings.setRenderPriority(WebSettings.RenderPriority.HIGH)
@@ -31,6 +38,11 @@ class WebViewActivity : DaggerAppCompatActivity() {
         webView.settings.useWideViewPort = true
         webView.settings.setEnableSmoothTransition(true)
         webView.loadUrl(url)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     override fun onBackPressed() {
